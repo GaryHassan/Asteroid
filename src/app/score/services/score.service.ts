@@ -10,20 +10,12 @@ import { Score } from "./score.config";
 })
 
 export class ScoreService {
-  private scoreURL = "https://asteroid.pixeltraits.com/api-docs/scores#/scores/get_scores"
+  private scoreURL = "https://asteroid.pixeltraits.com/api-docs/scores"
   constructor(private http: HttpClient) {}
 
-  getScore(): Observable<Score> {
-    return this.http.get<Score>(this.scoreURL);
+  getScore(): Observable<Score[]> {
+    return this.http.get<Score[]>(this.scoreURL);
     console.log('score')
   }
-
-  showScore() {
-    const score = this.getScore();
-    if (score) {
-      console.log(score)
-      };
-    }
 }
-
 

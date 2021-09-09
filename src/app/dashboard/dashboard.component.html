@@ -1,2 +1,17 @@
-<p class="text-xl">"I'm dashboard"</p>
+<p class="text-xl text-center mt-12">"Welcome to Asteroid Score Game"</p>
+  <div class="m-auto w-1/4 p-4 text-center border-dotted rounded-md border-blue-900">
+    <div class="my-8">
+      <label for="pseudo">"Pseudo" </label>
+      <input class="mt-4" id="pseudo" type="text" [formControl]="pseudo">
+    </div>
+    <div class="mt-12 my-12">
+      <label for="asteroid">"Asteroid" </label>
+      <input class="mt-4" id="asteroid" type="text" [formControl]="asteroid">
+    </div>
+    <div class="mt-12 my-12">
+      <label for="time">"Time" </label>
+      <input class="mt-4" id="time" type="text" [formControl]="time">
+    </div>
+  </div>
+
 <p class="bottom-0 absolute">asteroid.</p>

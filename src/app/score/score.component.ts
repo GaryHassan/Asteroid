@@ -8,13 +8,10 @@ import { ScoreService } from "./services/score.service";
 })
 export class ScoreComponent implements OnInit {
 
-  constructor(private readonly scoreService: ScoreService) {
-    this.scoreService.getScore()
-  }
+  constructor(private readonly scoreService: ScoreService) {}
 
   ngOnInit(): void {
     this.scoreService.getScore()
-    this.scoreService.showScore()
 
     console.log('ton pere')
   }

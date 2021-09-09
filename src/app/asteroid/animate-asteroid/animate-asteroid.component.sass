@@ -1,0 +1,323 @@
+//var
+$html: #EBF2FA
+$outline: #F5F8FA
+$primary: #304E8A
+$secondary: #19C6FF
+$bubble: #1DC7FF
+$shadow-1: #73E7FF
+$shadow-2: #17B2E6
+$sm-bubble: #0080BF
+$bs: rgba(0,0,0,0.2)
+
+
+// main sass
+
+//Inspired by an illustration/Animation by Alex Kunchevsky
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono')
+html, body
+  height: 100%
+  background: $html
+  font-family: 'Ubuntu Mono', monospace
+  overflow: hidden
+
+.outline
+  background: $outline
+  height: 650px
+  width: 650px
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  box-shadow: 0px 5px 30px $bs
+.asteroid
+  width: 200px
+  height: 200px
+  position: relative
+  z-index: 0
+  top: 50px
+  left: 50px
+  animation: force 2s linear infinite
+
+  .circle
+    width: 120px
+    height: 120px
+    background: $shadow-2
+    position: absolute
+    border-radius: 100%
+    border: 15px solid $primary
+    transform: rotate(-45deg)
+    z-index: 1
+    overflow: hidden
+    .shadow
+      height: 200px
+      width: 180px
+      background: $secondary
+      position: absolute
+      border-radius: 100%
+      top: -105px
+      left: -35px
+
+
+    .reflection
+      width: 60px
+      position: absolute
+      height: 35px
+      background: $shadow-1
+      border-radius: 100%
+      z-index: 2
+      top: 10px
+      left: 40px
+
+      &:before
+        content: ''
+        left: -25%
+        top: 35%
+        position: absolute
+        width: 13px
+        height: 13px
+        background: $shadow-1
+        border-radius: 100%
+
+    .pattern
+      width: 420px
+      height: 120px
+      z-index: 5
+      //background: grey
+      position: absolute
+      left: 0
+      animation: flow 2s linear infinite
+
+      .dot > div
+        width: 20px
+        height: 20px
+        background: $sm-bubble
+        position: absolute
+        border-radius: 100%
+
+        &.small
+          width: 15px
+          height: 15px
+        &.special
+          width: 20px
+          height: 20px
+          border-radius: 100%
+          border: 15px solid $sm-bubble
+          background: transparent
+
+        &.d1
+          left: 10px
+          top: 40px
+        &.d2
+          left: 40px
+          top: 90px
+        &.d3
+          left: 60px
+          top: -10px
+        &.d4
+          left: 60px
+          top: 60px
+        &.d5
+          left: 142px
+          top: 90px
+        &.d6
+          left: 152px
+          top: 10px
+        &.d7
+          left: 192px
+          top: 50px
+        &.d8
+          left: 242px
+          top: 10px
+
+        &.d9
+          left: 292px
+          top: 40px
+        &.d10
+          left: 322px
+          top: 90px
+        &.d11
+          left: 342px
+          top: -10px
+        &.d12
+          left: 342px
+          top: 60px
+.tail > div
+  height: 200px
+  width: 15px
+  overflow: hidden
+  border-radius: 150px
+  transform: rotate(-45deg)
+  position: absolute
+  z-index: 1
+  background: $primary
+  &.t1
+    top: -50px
+    left: -52px
+    width: 15px
+    background: transparent
+    .dash
+      height: 170px
+      width: 15px
+      position: absolute
+      background: $primary
+      border-radius: 150px
+      animation: tail1 1s linear infinite
+      &:after
+        content: ''
+        display: block
+        width: 15px
+        height: 170px
+        left: 0
+        border-radius: 150px
+        background: $primary
+        position: absolute
+        margin-top: 190px
+  &.t2
+    left: -66px
+    top: -124px
+    width: 12px
+    background: transparent
+    .dash2
+      height: 170px
+      width: 12px
+      position: absolute
+      background: $primary
+      border-radius: 150px
+      animation: tail1 0.8s linear infinite
+
+      &:after
+        content: ''
+        display: block
+        width: 12px
+        height: 170px
+        left: 0
+        border-radius: 150px
+        background: $primary
+        position: absolute
+        margin-top: 190px
+  &.t3
+    left: -25px
+    top: -125px
+    height: 80%
+    width: 12px
+    background: transparent
+    .dash3
+      height: 150px
+      width: 12px
+      position: absolute
+      background: $primary
+      border-radius: 150px
+      animation: tail2 1.2s linear infinite
+      &:before,
+      &:after
+        content: ''
+        display: block
+        left: 0
+        background: $primary
+        position: absolute
+        width: 12px
+      &:before
+        height: 12px
+        border-radius: 100%
+        margin-top: 160px
+      &:after
+        height: 150px
+        border-radius: 150px
+        margin-top: 180px
+  &.t4
+    left: 70px
+    top: -89px
+    height: 70%
+    background: transparent
+    .dash4
+      height: 100px
+      width: 15px
+      position: absolute
+      top: 0
+      background: $primary
+      border-radius: 150px
+      animation: tail3 1s linear infinite
+      &:after
+        content: ''
+        width: 15px
+        height: 100px
+        left: 0px
+        border-radius: 150px
+        background: $primary
+        position: absolute
+        margin-top: 120px
+.pulse > div
+  height: 25px
+  width: 25px
+  background: $bubble
+  position: relative
+  border-radius: 100%
+  opacity: 0
+  transform: scale(0)
+  &.p1
+    left: -350px
+    top: -80px
+    animation: pulse 3s linear infinite
+  &.p2
+    left: 10px
+    top: -120px
+    animation: pulse 3s 1s linear infinite
+  &.p3
+    top: 100px
+    left: -250px
+    animation: pulse 3s 2s linear infinite
+
+
+//animation
+@keyframes flow
+  0%
+    left: 0px
+  100%
+    left: -282px
+
+@keyframes tail1
+  0%
+    top: 0
+  100%
+    top: -190px
+
+@keyframes tail2
+  0%
+    top: 0
+  100%
+    top: -180px
+
+
+@keyframes tail3
+  0%
+    top: 0
+  100%
+    top: -120px
+@keyframes pulse
+  0%
+    transform: scale(0)
+    opacity: 0
+  5%
+    opacity: 1
+  20%,25%
+    transform: scale(1)
+    opacity: 1
+  33.33%, 100%
+    transform: scale(0)
+    opacity: 0
+@keyframes force
+  0%
+    top: 50px
+    left: 50px
+  50%,55%
+    top: 80px
+    left: 80px
+  100%
+    top: 50px
+    left: 50px
+

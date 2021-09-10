@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: ASTEROID_URL.relativePath,
     component: AsteroidComponent,
+  },
+  {
+    path: '**',
+    component: DashboardComponent
   }
 ];
 

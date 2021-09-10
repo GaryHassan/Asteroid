@@ -10,12 +10,16 @@ import { Score } from "./score.config";
 })
 
 export class ScoreService {
-  private scoreURL = "https://asteroid.pixeltraits.com/api-docs/scores"
-  constructor(private http: HttpClient) {}
+  private scoreURL = "https://asteroid.pixeltraits.com/api-docs/scores";
+  private reqheaders = new HttpHeaders({
+    'Access-Control-Allow-Origin': 'http://localhost:4200',
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'
+
+  })
+  constructor(private readonly httpClient: HttpClient) {}
 
   getScore(): Observable<Score[]> {
-    return this.http.get<Score[]>(this.scoreURL);
-    console.log('score')
+    return this.httpClient.get<Score[]>(this.scoreURL, { headers: this.reqheaders })
+    console.log('teub')
   }
 }
-

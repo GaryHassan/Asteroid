@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "postcss -w src/tailwind.css -o styles.css",
+    "build": "ng build",
+    "build:dev": "postcss -w src/tailwind.css -o styles.css",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

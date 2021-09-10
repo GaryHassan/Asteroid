@@ -11,9 +11,8 @@ export class ScoreComponent implements OnInit {
   constructor(private readonly scoreService: ScoreService) {}
 
   ngOnInit(): void {
-    this.scoreService.getScore()
-
-    console.log('ton pere')
+   this.scoreService.getScore()
+      .subscribe(data => console.log(data))
   }
 
 }
